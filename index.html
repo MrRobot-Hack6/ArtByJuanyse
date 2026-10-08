@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Art by Juanyse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="b" viewBox="0 0 100 100">
+          <path
+            d="M50 50C38 20 12 12 10 32c-2 18 18 24 40 18Z"
+            fill="#A4530C"
+          />
+          <path d="M50 50C62 20 88 12 90 32c2 18-18 24-40 18Z" fill="#BF6A1F" />
+          <path d="M50 52C34 56 20 70 28 84c10 8 20-14 22-32Z" fill="#8DA28C" />
+          <path
+            d="M50 52C66 56 80 70 72 84c-10 8-20-14-22-32Z"
+            fill="#A9BAA8"
+          />
+          <circle cx="28" cy="30" r="5" fill="#EEE9C1" opacity=".7" />
+          <circle cx="72" cy="30" r="5" fill="#EEE9C1" opacity=".7" />
+          <path
+            d="M50 40v28"
+            stroke="#3A230A"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <path
+            d="M50 40c-4-9-8-11-10-12M50 40c4-9 8-11 10-12"
+            stroke="#3A230A"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="hero">
+      <svg class="bf" style="--s: 56px; left: 8%; top: 60px; --r: -15deg">
+        <use href="#b" />
+      </svg>
+      <svg
+        class="bf"
+        style="--s: 38px; right: 10%; top: 110px; --r: 20deg; --d: 1s"
+      >
+        <use href="#b" />
+      </svg>
+      <svg
+        class="bf"
+        style="--s: 30px; left: 18%; top: 340px; --r: 10deg; --d: 2s; --o: 0.5"
+      >
+        <use href="#b" />
+      </svg>
+      <svg
+        class="bf"
+        style="
+          --s: 48px;
+          right: 7%;
+          top: 380px;
+          --r: -25deg;
+          --d: 0.5s;
+          --o: 0.55;
+        "
+      >
+        <use href="#b" />
+      </svg>
+      <div class="photo" id="photo">
+        <img
+          src="images/Juanyse-logo Image.jpeg"
+          alt="Juanyse smiling at her easel with a paintbrush"
+          width="640"
+          height="640"
+        />
+      </div>
+      <div class="eyebrow">Drawings · Paintings · Murals</div>
+      <h1>Art by <em>Juanyse</em></h1>
+      <p>
+        Custom drawings and paintings, murals and paint &amp; sip events, made
+        with a little flutter of magic.
+      </p>
+      <div class="btns">
+        <a class="btn" href="#order">Choose what you want</a
+        ><a class="btn o" href="#work">See my work</a>
+      </div>
+    </header>
+
+    <section id="order">
+      <div class="eyebrow">Start here</div>
+      <h2>Choose what you want</h2>
+      <p class="lead">
+        Pick one of the three below, tell me about your idea, and I'll get back
+        to you on WhatsApp.
+      </p>
+      <div class="cards" id="cards"></div>
+      <form id="formWrap" autocomplete="off"></form>
+    </section>
+
+    <section id="work">
+      <div class="eyebrow">Portfolio</div>
+      <h2>My work</h2>
+      <p class="lead">
+        A peek at recent pieces. Sizes shown with each artwork.
+      </p>
+      <div class="gallery" id="gal"></div>
+    </section>
+
+    <section class="contact" id="contact">
+      <svg class="bf" style="--s: 44px; left: 10%; top: 40px; --r: -10deg">
+        <use href="#b" />
+      </svg>
+      <svg
+        class="bf"
+        style="--s: 34px; right: 12%; bottom: 50px; --r: 18deg; --d: 1.5s"
+      >
+        <use href="#b" />
+      </svg>
+      <div class="eyebrow">Get in touch</div>
+      <h2>Let's make something beautiful</h2>
+      <p class="lead" style="margin: 0 auto">
+        Please note: no phone calls, WhatsApp or SMS only.
+      </p>
+      <div class="social">
+        <a
+          href="https://wa.me/27793340711?text=Hi%20Juanyse!"
+          target="_blank"
+          rel="noopener"
+          aria-label="Message Juanyse on WhatsApp"
+          ><span class="ic"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2.2a9.8 9.8 0 0 0-8.4 14.8L2.2 21.8l4.9-1.3A9.8 9.8 0 1 0 12 2.2z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+              />
+              <path
+                fill="currentColor"
+                d="M16.4 14.2c-.3-.2-1.6-.8-1.9-.9-.3-.1-.5-.1-.7.2l-.8 1c-.1.2-.3.2-.6.1-1.5-.7-2.5-1.3-3.5-2.9-.3-.4.2-.4.7-1.4.1-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.400s1 2.700 1.200 2.900c.1.200 2 3 4.800 4.200 1.800.7 2.400.8 3.300.6.5-.1 1.600-.7 1.800-1.300.2-.6.2-1.200.2-1.300-.1-.1-.3-.2-.6-.3z"
+              /></svg></span
+          ><span>WhatsApp</span></a
+        >
+        <a
+          href="https://instagram.com/the_nesie_studio"
+          target="_blank"
+          rel="noopener"
+          aria-label="Juanyse on Instagram"
+          ><span class="ic"
+            ><svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="5.5" />
+              <circle cx="12" cy="12" r="4.2" />
+              <circle
+                cx="17.3"
+                cy="6.7"
+                r="1"
+                fill="currentColor"
+                stroke="none"
+              /></svg></span
+          ><span>Instagram</span></a
+        >
+      </div>
+      <div class="links">
+        <span>WhatsApp / SMS: 079 334 0711</span>
+        <span>Instagram: @the_nesie_studio</span>
+      </div>
+    </section>
+    <div id="lb" role="dialog" aria-label="Artwork preview"><img alt="" /></div>
+    <footer>
+      <svg width="24" height="24" style="vertical-align: middle">
+        <use href="#b" />
+      </svg>
+      © <span id="yr"></span> Art by Juanyse
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
