@@ -443,3 +443,17 @@ footer {
     left: 6%;
   }
 }
+.reel {
+  margin: 26px auto 0;
+  max-width: 340px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+  background: var(--card);
+  box-shadow: 0 14px 36px rgba(58, 35, 10, 0.2);
+}
+.reel video {
+  display: block;
+  width: 100%;
+  height: auto;
+}

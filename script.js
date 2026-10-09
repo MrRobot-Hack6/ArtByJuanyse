@@ -75,6 +75,20 @@ form.onsubmit = (e) => {
 // and "size": the real artwork size, e.g. "A4, acrylic on canvas"
 const IM = [
   {
+    src: "images/sea-turtles-reef.jpg",
+    alt: "Two sea turtles swimming over a colourful coral reef with dolphins and tropical fish",
+    w: 900,
+    h: 685,
+    size: "",
+  },
+  {
+    src: "images/wolf-in-blossoms.jpg",
+    alt: "A grey wolf with amber eyes among white blossoms",
+    w: 670,
+    h: 900,
+    size: "",
+  },
+  {
     src: "images/01-songbirds-blossom.jpg",
     alt: "Two songbirds on a blossom branch with wedding rings, acrylic on canvas",
     w: 648,
@@ -89,10 +103,10 @@ const IM = [
     size: "A1, White pencil on black paper",
   },
   {
-    src: "images/03-siamese-cats.jpg",
-    alt: "Two Siamese cats against a dark background",
-    w: 720,
-    h: 900,
+    src: "images/09-leopard.jpg",
+    alt: "Leopard portrait framed by yellow flowers",
+    w: 900,
+    h: 709,
     size: "*",
   },
   {
@@ -124,6 +138,13 @@ const IM = [
     size: "A2, acrylic on canvas",
   },
   {
+    src: "images/horse-eye.jpg",
+    alt: "Close-up painting of a black and white horse's eye",
+    w: 890,
+    h: 619,
+    size: "",
+  },
+  {
     src: "images/08-whisky-and-pistol.jpg",
     alt: "A glass of whisky with a hand, pistol and bullets",
     w: 900,
@@ -131,10 +152,10 @@ const IM = [
     size: "A5, acrylic on canvas",
   },
   {
-    src: "images/09-leopard.jpg",
-    alt: "Leopard portrait framed by yellow flowers",
-    w: 900,
-    h: 709,
+    src: "images/03-siamese-cats.jpg",
+    alt: "Two Siamese cats against a dark background",
+    w: 720,
+    h: 900,
     size: "*",
   },
   {
