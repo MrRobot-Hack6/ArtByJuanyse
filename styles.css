@@ -112,6 +112,9 @@ section {
 .hero > * {
   position: relative;
 }
+.hero > .bf {
+  position: absolute;
+}
 .photo {
   width: min(260px, 70vw);
   aspect-ratio: 1;
@@ -381,6 +384,9 @@ textarea {
 .contact > * {
   position: relative;
 }
+.contact > .bf {
+  position: absolute;
+}
 .social {
   display: flex;
   gap: 28px;
@@ -456,4 +462,132 @@ footer {
   display: block;
   width: 100%;
   height: auto;
+}
+.photo-wrap {
+  position: relative;
+  width: min(400px, 96vw);
+  margin: 0 auto 14px;
+  padding: 40px 0;
+}
+.photo-wrap .photo {
+  margin: 0 auto;
+}
+.fl-art {
+  position: absolute;
+  padding: 0;
+  border: 3px solid var(--card);
+  border-radius: 10px;
+  background: var(--card);
+  overflow: hidden;
+  cursor: zoom-in;
+  box-shadow: 0 10px 24px rgba(58, 35, 10, 0.3);
+  transform: rotate(var(--r, 0deg));
+  animation: bob 5s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+  z-index: 2;
+}
+.fl-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fl-art:hover,
+.fl-art:focus-visible {
+  border-color: var(--t);
+}
+.fl-art.a {
+  width: 100px;
+  left: -4px;
+  top: -2px;
+  --r: -7deg;
+}
+.fl-art.b {
+  width: 78px;
+  right: -4px;
+  top: 14px;
+  --r: 6deg;
+  --d: 1s;
+}
+.fl-art.c {
+  width: 98px;
+  right: -2px;
+  bottom: 8px;
+  --r: -4deg;
+  --d: 2s;
+}
+.fl-art.d {
+  width: 70px;
+  left: -2px;
+  bottom: 6px;
+  --r: 5deg;
+  --d: 3s;
+}
+@keyframes bob {
+  50% {
+    transform: translateY(-9px) rotate(calc(var(--r, 0deg) + 2deg));
+  }
+}
+.orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+  pointer-events: none;
+  z-index: 3;
+  animation: spin 24s linear infinite;
+}
+.bf.orb {
+  animation: none;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (min-width: 700px) {
+  .photo-wrap {
+    width: 620px;
+  }
+  .fl-art.a {
+    width: 150px;
+    left: 0;
+    top: 0;
+  }
+  .fl-art.b {
+    width: 112px;
+    right: 0;
+    top: 10px;
+  }
+  .fl-art.c {
+    width: 130px;
+    right: 10px;
+    bottom: 0;
+  }
+  .fl-art.d {
+    width: 100px;
+    left: 10px;
+    bottom: 0;
+  }
+}
+@media (max-width: 600px) {
+  .hero > .bf {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fl-art,
+  .orbit {
+    animation: none;
+  }
+}
+.to-top {
+  display: block;
+  width: fit-content;
+  margin: 0 auto 20px;
+}
+.to-top:hover,
+.to-top:focus-visible {
+  background: var(--tint);
 }

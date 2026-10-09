@@ -79,14 +79,14 @@ const IM = [
     alt: "Two sea turtles swimming over a colourful coral reef with dolphins and tropical fish",
     w: 900,
     h: 685,
-    size: "",
+    size: "A3, acrylic on canvas",
   },
   {
     src: "images/wolf-in-blossoms.jpg",
     alt: "A grey wolf with amber eyes among white blossoms",
     w: 670,
     h: 900,
-    size: "",
+    size: "A3, acrylic on canvas",
   },
   {
     src: "images/01-songbirds-blossom.jpg",
@@ -142,7 +142,7 @@ const IM = [
     alt: "Close-up painting of a black and white horse's eye",
     w: 890,
     h: 619,
-    size: "",
+    size: "A0, acrylic on canvas",
   },
   {
     src: "images/08-whisky-and-pistol.jpg",
@@ -190,3 +190,13 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") lb.classList.remove("on");
 });
 document.getElementById("yr").textContent = new Date().getFullYear();
+
+// Floating hero paintings open in the zoom view
+document.querySelectorAll(".fl-art").forEach((b) => {
+  b.onclick = () => {
+    const i = b.querySelector("img");
+    lb.querySelector("img").src = i.getAttribute("src");
+    lb.querySelector("img").alt = i.alt;
+    lb.classList.add("on");
+  };
+});

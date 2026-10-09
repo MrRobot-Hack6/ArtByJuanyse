@@ -47,7 +47,7 @@
       </defs>
     </svg>
 
-    <header class="hero">
+    <header class="hero" id="top">
       <svg class="bf" style="--s: 56px; left: 8%; top: 60px; --r: -15deg">
         <use href="#b" />
       </svg>
@@ -76,13 +76,95 @@
       >
         <use href="#b" />
       </svg>
-      <div class="photo" id="photo">
-        <img
-          src="images/Juanyse-logo Image.jpeg"
-          alt="Juanyse smiling at her easel with a paintbrush"
-          width="640"
-          height="640"
-        />
+      <div class="photo-wrap">
+        <div class="photo" id="photo">
+          <img
+            src="images/Juanyse-logo Image.jpeg"
+            alt="Juanyse smiling at her easel with a paintbrush"
+            width="640"
+            height="640"
+          />
+        </div>
+        <button
+          class="fl-art a"
+          type="button"
+          aria-label="View painting: sea turtles"
+        >
+          <img
+            src="images/sea-turtles-reef.jpg"
+            alt="Two sea turtles swimming over a colourful coral reef with dolphins and tropical fish"
+            width="900"
+            height="685"
+          />
+        </button>
+        <button
+          class="fl-art b"
+          type="button"
+          aria-label="View painting: wolf in blossoms"
+        >
+          <img
+            src="images/wolf-in-blossoms.jpg"
+            alt="A grey wolf with amber eyes among white blossoms"
+            width="670"
+            height="900"
+          />
+        </button>
+        <button
+          class="fl-art c"
+          type="button"
+          aria-label="View painting: horse eye"
+        >
+          <img
+            src="images/horse-eye.jpg"
+            alt="Close-up painting of a black and white horse's eye"
+            width="890"
+            height="619"
+          />
+        </button>
+        <button
+          class="fl-art d"
+          type="button"
+          aria-label="View sketch: raccoon with headphones"
+        >
+          <img
+            src="images/raccoon-sketch.jpg"
+            alt="Pencil sketch of a raccoon wearing headphones and holding a wine glass"
+            width="478"
+            height="850"
+          />
+        </button>
+        <div class="orbit" aria-hidden="true">
+          <svg
+            class="bf orb"
+            style="--s: 34px; left: calc(50% - 17px); top: -17px; --r: 0deg"
+          >
+            <use href="#b" />
+          </svg>
+          <svg
+            class="bf orb"
+            style="
+              --s: 28px;
+              left: calc(86.6% - 14px);
+              top: calc(75% - 14px);
+              --r: 120deg;
+              --o: 0.6;
+            "
+          >
+            <use href="#b" />
+          </svg>
+          <svg
+            class="bf orb"
+            style="
+              --s: 30px;
+              left: calc(13.4% - 15px);
+              top: calc(75% - 15px);
+              --r: 240deg;
+              --o: 0.65;
+            "
+          >
+            <use href="#b" />
+          </svg>
+        </div>
       </div>
       <div class="eyebrow">Drawings · Paintings · Murals</div>
       <h1>Art by <em>Juanyse</em></h1>
@@ -125,10 +207,10 @@
           controls
           playsinline
           preload="metadata"
-          poster="images/Racoon_sketch-poster.jpg"
+          poster="images/raccoon-sketch-poster.jpg"
           aria-label="Short video of Juanyse drawing a raccoon wearing headphones and holding a wine glass"
         >
-          <source src="videos/Racoon_sketch.mp4" type="video/mp4" />
+          <source src="videos/raccoon-sketch.mp4" type="video/mp4" />
         </video>
       </figure>
     </section>
@@ -195,8 +277,11 @@
           ><span>Instagram</span></a
         >
       </div>
+    </section>
+
     <div id="lb" role="dialog" aria-label="Artwork preview"><img alt="" /></div>
     <footer>
+      <a class="btn o to-top" href="#top">&#8593; Back to the top</a>
       <svg width="24" height="24" style="vertical-align: middle">
         <use href="#b" />
       </svg>
