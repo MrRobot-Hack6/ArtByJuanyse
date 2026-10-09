@@ -465,9 +465,9 @@ footer {
 }
 .photo-wrap {
   position: relative;
-  width: min(400px, 96vw);
+  width: min(400px, 100%);
   margin: 0 auto 14px;
-  padding: 40px 0;
+  padding: 52px 0;
 }
 .photo-wrap .photo {
   margin: 0 auto;
@@ -496,31 +496,36 @@ footer {
   border-color: var(--t);
 }
 .fl-art.a {
-  width: 100px;
-  left: -4px;
-  top: -2px;
+  width: min(26vw, 104px);
+  left: 6px;
+  top: 0;
   --r: -7deg;
 }
 .fl-art.b {
-  width: 78px;
-  right: -4px;
-  top: 14px;
+  width: min(20vw, 84px);
+  right: 6px;
+  top: 4px;
   --r: 6deg;
   --d: 1s;
 }
 .fl-art.c {
-  width: 98px;
-  right: -2px;
-  bottom: 8px;
+  width: min(25vw, 104px);
+  right: 6px;
+  bottom: 4px;
   --r: -4deg;
   --d: 2s;
 }
 .fl-art.d {
-  width: 70px;
-  left: -2px;
-  bottom: 6px;
+  width: min(18vw, 74px);
+  left: 6px;
+  bottom: 8px;
   --r: 5deg;
   --d: 3s;
+}
+@media (max-width: 699px) {
+  .photo-wrap .photo {
+    width: min(240px, 60vw);
+  }
 }
 @keyframes bob {
   50% {
@@ -531,9 +536,9 @@ footer {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 300px;
-  height: 300px;
-  margin: -150px 0 0 -150px;
+  translate: -50% -50%;
+  width: min(300px, 84vw);
+  height: min(300px, 84vw);
   pointer-events: none;
   z-index: 3;
   animation: spin 24s linear infinite;
