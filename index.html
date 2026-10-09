@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="styles.css?v=5" />
   </head>
   <body>
     <svg width="0" height="0" style="position: absolute" aria-hidden="true">
@@ -203,15 +203,133 @@
       <h2>Watch me draw</h2>
       <p class="lead">A short clip of my raccoon sketch coming to life.</p>
       <figure class="reel">
-        <video
-          controls
-          playsinline
-          preload="metadata"
-          poster="images/raccoon-sketch-poster.jpg"
-          aria-label="Short video of Juanyse drawing a raccoon wearing headphones and holding a wine glass"
-        >
-          <source src="videos/Racoon_sketch.mp4" type="video/mp4" />
-        </video>
+        <div class="vp" data-state="idle">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="images/raccoon-sketch-poster.jpg"
+            aria-label="Short video of Juanyse drawing a raccoon wearing headphones and holding a wine glass"
+          >
+            <source src="videos/raccoon-sketch.mp4" type="video/mp4" />
+          </video>
+          <div class="vp-shade"></div>
+          <button class="vp-play" type="button" aria-label="Play video">
+            <span class="ic ic-play"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path fill="currentColor" d="M8 5v14l11-7z" /></svg
+            ></span>
+            <span class="ic ic-replay"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"
+                /></svg
+            ></span>
+            <svg class="vp-perch" aria-hidden="true"><use href="#b" /></svg>
+          </button>
+          <span class="vp-label">Watch her draw</span>
+          <div class="vp-loading" role="status" aria-live="polite">
+            <svg class="vp-fly" viewBox="0 0 100 100" aria-hidden="true">
+              <g class="wing wl">
+                <path
+                  d="M50 50C38 20 12 12 10 32c-2 18 18 24 40 18Z"
+                  fill="#A4530C"
+                />
+                <path
+                  d="M50 52C34 56 20 70 28 84c10 8 20-14 22-32Z"
+                  fill="#00A3A6"
+                />
+                <circle cx="28" cy="30" r="5" fill="#EEE9C1" opacity=".75" />
+              </g>
+              <g class="wing wr">
+                <path
+                  d="M50 50C62 20 88 12 90 32c2 18-18 24-40 18Z"
+                  fill="#BF6A1F"
+                />
+                <path
+                  d="M50 52C66 56 80 70 72 84c-10 8-20-14-22-32Z"
+                  fill="#3DBFC1"
+                />
+                <circle cx="72" cy="30" r="5" fill="#EEE9C1" opacity=".75" />
+              </g>
+              <path
+                d="M50 38v32"
+                stroke="#EEE9C1"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                d="M50 38c-4-9-8-11-10-12M50 38c4-9 8-11 10-12"
+                stroke="#EEE9C1"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+              />
+            </svg>
+            <span class="vp-msg">Loading the video</span>
+          </div>
+          <div class="vp-bar">
+            <button class="vp-toggle" type="button" aria-label="Play or pause">
+              <span class="ic ic-pause"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M6 5h4v14H6zM14 5h4v14h-4z"
+                  /></svg
+              ></span>
+              <span class="ic ic-play2"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M8 5v14l11-7z" /></svg
+              ></span>
+            </button>
+            <input
+              class="vp-seek"
+              type="range"
+              min="0"
+              max="1000"
+              value="0"
+              aria-label="Seek"
+            />
+            <button class="vp-mute" type="button" aria-label="Mute or unmute">
+              <span class="ic ic-vol"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M3 10v4h4l5 4V6L7 10z" />
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    d="M15.5 8.5a5 5 0 0 1 0 7M18 6a8.5 8.5 0 0 1 0 12"
+                  /></svg
+              ></span>
+              <span class="ic ic-muted"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path fill="currentColor" d="M3 10v4h4l5 4V6L7 10z" />
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    d="M16 9.5l5 5M21 9.5l-5 5"
+                  /></svg
+              ></span>
+            </button>
+            <button class="vp-fs" type="button" aria-label="Full screen">
+              <span class="ic"
+                ><svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"
+                  /></svg
+              ></span>
+            </button>
+          </div>
+        </div>
       </figure>
     </section>
 
@@ -288,6 +406,7 @@
       © <span id="yr"></span> Art by Juanyse
     </footer>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
+    <script src="video.js?v=1"></script>
   </body>
 </html>

@@ -596,3 +596,344 @@ footer {
 .to-top:focus-visible {
   background: var(--tint);
 }
+
+/* ---- Custom video player ---- */
+.vp {
+  position: relative;
+  aspect-ratio: 478 / 850;
+  background: #1c120a;
+  overflow: hidden;
+  color: #fff;
+}
+.vp video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.vp-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(28, 18, 10, 0.1),
+    rgba(28, 18, 10, 0.55)
+  );
+  transition: opacity 0.3s;
+}
+.vp[data-state="playing"] .vp-shade {
+  opacity: 0;
+}
+/* Hide our controls until the script switches them on */
+.vp:not(.js) .vp-shade,
+.vp:not(.js) .vp-play,
+.vp:not(.js) .vp-label,
+.vp:not(.js) .vp-loading,
+.vp:not(.js) .vp-bar {
+  display: none;
+}
+
+/* Big butterfly play button */
+.vp-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #a4530c;
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+.vp-play::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #00a3a6;
+  animation: ring 2.2s ease-out infinite;
+}
+@keyframes ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+}
+.vp-play:hover,
+.vp-play:focus-visible {
+  background: #00a3a6;
+  transform: scale(1.07);
+}
+.vp-play .ic svg {
+  width: 38px;
+  height: 38px;
+  display: block;
+}
+.vp-play .ic-play svg {
+  translate: 3px 0;
+}
+.vp-play .ic-replay {
+  display: none;
+}
+.vp[data-state="ended"] .vp-play .ic-play {
+  display: none;
+}
+.vp[data-state="ended"] .vp-play .ic-replay {
+  display: block;
+}
+.vp-perch {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  right: -12px;
+  top: -14px;
+  rotate: 18deg;
+  transform-origin: 50% 80%;
+  animation: perch 3s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes perch {
+  50% {
+    transform: translateY(-4px) rotate(-8deg);
+  }
+}
+.vp-label {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  translate: -50% 0;
+  padding: 7px 16px;
+  border-radius: 99px;
+  background: rgba(28, 18, 10, 0.55);
+  backdrop-filter: blur(4px);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.vp:not([data-state="idle"]) .vp-label {
+  display: none;
+}
+.vp[data-state="loading"] .vp-play,
+.vp[data-state="playing"] .vp-play,
+.vp[data-state="error"] .vp-play {
+  display: none;
+}
+
+/* Butterfly loading screen */
+.vp-loading {
+  position: absolute;
+  inset: 0;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: rgba(28, 18, 10, 0.6);
+  backdrop-filter: blur(3px);
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #eee9c1;
+}
+.vp[data-state="loading"] .vp-loading,
+.vp[data-state="error"] .vp-loading {
+  display: flex;
+}
+.vp-fly {
+  width: 96px;
+  height: 96px;
+  overflow: visible;
+  animation: drift 2.6s ease-in-out infinite;
+}
+.vp[data-state="error"] .vp-fly {
+  animation: none;
+  opacity: 0.6;
+}
+.vp-fly .wing {
+  transform-box: view-box;
+  transform-origin: 50px 50px;
+  animation: flap 0.45s ease-in-out infinite alternate;
+}
+.vp[data-state="error"] .vp-fly .wing {
+  animation: none;
+}
+.vp-fly .wr {
+  animation-name: flap;
+}
+@keyframes flap {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0.22);
+  }
+}
+@keyframes drift {
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+.vp[data-state="loading"] .vp-msg::after {
+  content: "";
+  display: inline-block;
+  width: 1.2em;
+  text-align: left;
+  animation: dots 1.4s steps(4, end) infinite;
+}
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+}
+
+/* Controls bar */
+.vp-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 26px 10px 10px;
+  background: linear-gradient(to top, rgba(28, 18, 10, 0.8), transparent);
+  transition: opacity 0.3s;
+}
+.vp[data-state="playing"] .vp-bar,
+.vp[data-state="paused"] .vp-bar,
+.vp[data-state="loading"] .vp-bar {
+  display: flex;
+}
+.vp[data-state="playing"].idle .vp-bar {
+  opacity: 0;
+}
+.vp-bar button {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.vp-bar button:hover,
+.vp-bar button:focus-visible {
+  background: rgba(0, 163, 166, 0.55);
+}
+.vp-bar .ic {
+  display: grid;
+}
+.vp-bar svg {
+  width: 22px;
+  height: 22px;
+}
+.vp-toggle .ic-pause {
+  display: none;
+}
+.vp[data-state="playing"] .vp-toggle .ic-pause {
+  display: grid;
+}
+.vp[data-state="playing"] .vp-toggle .ic-play2 {
+  display: none;
+}
+.vp-mute .ic-muted {
+  display: none;
+}
+.vp[data-muted="true"] .vp-mute .ic-muted {
+  display: grid;
+}
+.vp[data-muted="true"] .vp-mute .ic-vol {
+  display: none;
+}
+.vp-seek {
+  --p: 0%;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+.vp-seek::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 99px;
+  background: linear-gradient(
+    to right,
+    #00a3a6 var(--p),
+    rgba(255, 255, 255, 0.35) var(--p)
+  );
+}
+.vp-seek::-moz-range-track {
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.35);
+}
+.vp-seek::-moz-range-progress {
+  height: 5px;
+  border-radius: 99px;
+  background: #00a3a6;
+}
+.vp-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -5.5px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #a4530c;
+}
+.vp-seek::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #a4530c;
+}
+.vp-seek:focus-visible {
+  outline: 2px solid #00a3a6;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .vp-play::before,
+  .vp-perch,
+  .vp-fly,
+  .vp-fly .wing {
+    animation: none;
+  }
+}
