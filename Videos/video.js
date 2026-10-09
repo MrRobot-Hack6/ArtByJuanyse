@@ -3,6 +3,8 @@
   const vp = document.querySelector(".vp");
   if (!vp) return;
   const v = vp.querySelector("video");
+  if (!v) return;
+
   const playBtn = vp.querySelector(".vp-play");
   const toggle = vp.querySelector(".vp-toggle");
   const seek = vp.querySelector(".vp-seek");
